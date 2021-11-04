@@ -1,6 +1,6 @@
 # Customer-Manager-Fitness
 ```
-🔴This Progect Is Still In Build
+🔴Still In Build
 ```
 This Applicaition will manage the customers for a fitness coach (Training Programs and Menus)
 
