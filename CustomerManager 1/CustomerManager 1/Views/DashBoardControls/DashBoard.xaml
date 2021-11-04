@@ -1,0 +1,211 @@
+﻿<UserControl x:Class="CustomerManager_1.Views.DashBoardControls.DashBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CustomerManager_1.Views.DashBoardControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:command="http://www.galasoft.ch/mvvmlight"
+             mc:Ignorable="d" 
+             DataContext="{Binding Source={StaticResource Locator}, Path=DashBoard}">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <command:EventToCommand Command="{Binding LoadedCommand, Mode=OneWay}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+
+
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                <GradientStop Color="#957DAD" Offset="1.0" />
+                <GradientStop Color=" #D291BC" Offset="0.5"  />
+                <GradientStop Color="#E0BBE4" Offset="0.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition  Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Background="#2E333A"
+                             ToolTip="Total Customers"
+                             Padding="16,0,16,0"
+                             Margin="16"
+                             MaxWidth="600">
+            <Grid>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="AccountGroup" Foreground="{StaticResource DataGrid.Hover.Foreground}" Width="70" Height="70"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <TextBlock Text="{Binding CustomersNumber}" FontSize="70" Foreground="White">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="5"
+                                              ShadowDepth="1"
+                                              Direction="-90"
+                                              Color="White"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card Background="#2E333A"
+                             ToolTip="Total Food Menus"
+                             Padding="16,0,16,0"
+                             Margin="16"
+                             Grid.Column="1"
+                             MaxWidth="600">
+            <Grid>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="BookOpenPageVariant" Foreground="{StaticResource DataGrid.Hover.Foreground}" Width="70" Height="70"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <TextBlock Text="{Binding MenusNumber}" FontSize="70" Foreground="White">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="5"
+                                              ShadowDepth="1"
+                                              Direction="-90"
+                                              Color="White"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+            
+            </materialDesign:Card>
+        <materialDesign:Card Background="#2E333A"
+                             ToolTip="Total Training Programs"
+                             Padding="16,0,16,0"
+                             Margin="16"
+                             Grid.Column="2"
+                             MaxWidth="600">
+
+            <Grid>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="Dumbbell" Foreground="{StaticResource DataGrid.Hover.Foreground}" Width="70" Height="70"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <TextBlock Text="{Binding TrainingProgramssNumber}" FontSize="70" Foreground="White">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="5"
+                                              ShadowDepth="1"
+                                              Direction="-90"
+                                              Color="White"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+
+        </materialDesign:Card>
+
+        <materialDesign:Card Background="#2E333A"
+                             ToolTip="Total Training Programs"
+                             Padding="16,0,16,0"
+                             Margin="16"
+                             Grid.Column="2"
+                             MaxWidth="600">
+
+            <Grid>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="Dumbbell" Foreground="{StaticResource DataGrid.Hover.Foreground}" Width="70" Height="70"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <TextBlock Text="{Binding TrainingProgramssNumber}" FontSize="70" Foreground="White">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="5"
+                                              ShadowDepth="1"
+                                              Direction="-90"
+                                              Color="White"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+
+        </materialDesign:Card>
+        <StackPanel Grid.Row="1"  Grid.ColumnSpan="3" Grid.RowSpan="3" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+            <materialDesign:Card Padding="16"
+                                 Margin="64"
+                                 Grid.Column="2"
+                                 Height="350"
+                                 MaxWidth="1050">
+                
+                <materialDesign:Card.Background>
+                    <ImageBrush ImageSource="/Assets/DashBoard_BackGround.png"/>
+
+                </materialDesign:Card.Background>
+
+                    <StackPanel>
+                        <Image Source="/Assets/Logo.png" Width="300" Height="300" SnapsToDevicePixels="True"/>
+                    </StackPanel>
+
+            </materialDesign:Card>
+        </StackPanel>
+        
+
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="5" VerticalAlignment="Bottom" >
+        <materialDesign:MaterialDateDisplay VerticalAlignment="Bottom" Margin="10"/>
+
+        <materialDesign:Snackbar materialDesign:ThemeAssist.Theme="Dark"
+                                 IsActive="True"
+                                 Margin="0,-80,0,20">
+            <materialDesign:SnackbarMessage>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <TextBlock Width="30" Height="30" HorizontalAlignment="Right" Grid.Row="5" VerticalAlignment="Bottom" Cursor="Hand" Margin="0,0,-20,0">
+        <Hyperlink NavigateUri="https://www.facebook.com/idan.barzilay.52/"
+                  TextDecorations="None">
+            <Image Source="/Assets/facebook.png"></Image>
+        </Hyperlink>
+                        <TextBlock.ToolTip>
+                            <ToolTip Content="https://www.facebook.com/idan.barzilay.52">
+
+                            </ToolTip>
+                        </TextBlock.ToolTip>
+                    </TextBlock>
+
+                    <TextBlock Width="25" Height="25" HorizontalAlignment="Right" Cursor="Hand" Margin="110,0,0,0">
+        <Hyperlink NavigateUri=""
+                  TextDecorations="None">
+            <Image Source="/Assets/instagram.png"></Image>
+        </Hyperlink>
+                        <TextBlock.ToolTip>
+                            <ToolTip Content="https://www.facebook.com/idan.barzilay.52">
+
+                            </ToolTip>
+                        </TextBlock.ToolTip>
+                    </TextBlock>
+
+                    <TextBlock Width="30" Height="30" HorizontalAlignment="Right" Grid.Row="5" VerticalAlignment="Bottom" Cursor="Hand" Margin="100,0,0,0">
+        <Hyperlink NavigateUri="https://github.com/IdanBarzI"
+                  TextDecorations="None">
+            <Image Source="/Assets/Github.png"></Image>
+        </Hyperlink>
+                        <TextBlock.ToolTip>
+                            <ToolTip Content="https://github.com/IdanBarzI">
+
+                            </ToolTip>
+                        </TextBlock.ToolTip>
+                    </TextBlock>
+                </StackPanel>
+               
+                
+            </materialDesign:SnackbarMessage>
+            </materialDesign:Snackbar>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

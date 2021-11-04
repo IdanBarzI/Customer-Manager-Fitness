@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="CustomerManager_1.Views.CustomerFormControls.CustomerForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CustomerManager_1.Views.CustomerFormControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             DataContext="{Binding Source={StaticResource Locator}, Path=CustomerForm}" >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#e040fb" Offset="0.0" />
+                <GradientStop Color= "#f57c00" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <materialDesign:Card Background="#2E333A"
+                             Padding="32"
+                             Margin="16"
+                             MaxWidth="600">
+            <StackPanel>
+                <StackPanel HorizontalAlignment="Center"
+                                     Background="Transparent"
+                                     Margin="0,0,0,30">
+                    <TextBlock HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontSize="40"
+                               MinWidth="200"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Text="{Binding ElementName=NameTextBox, Path=Text}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="4"
+                                              ShadowDepth="1"
+                                              Direction="-90"
+                                              Color="White"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+                <TextBox x:Name="NameTextBox"
+                         Text="{Binding Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         materialDesign:ValidationAssist.HasError="True"
+                         materialDesign:ValidationAssist.Background="Transparent"
+                         materialDesign:ValidationAssist.FontSize="12"
+                         materialDesign:HintAssist.Hint="Full Name"
+                         materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                         materialDesign:TextFieldAssist.LeadingIcon="Account">
+                </TextBox>
+
+                <TextBox x:Name="MailTextBox"
+                         Text="{Binding Mail, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         materialDesign:ValidationAssist.HasError="True"
+                         materialDesign:ValidationAssist.Background="Transparent"
+                         materialDesign:ValidationAssist.FontSize="12"
+                         materialDesign:HintAssist.Hint="Email"
+                         materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                         materialDesign:TextFieldAssist.LeadingIcon="Gmail" />
+
+                <TextBox x:Name="PhoneTextBox" MaxLength="14"
+                             Text="{Binding Phone, Converter={StaticResource PhoneConverter}, ConverterParameter=Phone,
+                                    ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                             materialDesign:ValidationAssist.HasError="True"
+                             materialDesign:ValidationAssist.Background="Transparent"
+                             materialDesign:ValidationAssist.FontSize="12"
+                             materialDesign:HintAssist.Hint="Phone"
+                             materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                             materialDesign:TextFieldAssist.LeadingIcon="Phone"></TextBox>
+
+                <TextBox x:Name="AgeTextBox" MaxLength="2"
+                         Text="{Binding Age, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         materialDesign:ValidationAssist.HasError="True"
+                         materialDesign:ValidationAssist.Background="Transparent"
+                         materialDesign:ValidationAssist.FontSize="12"
+                         materialDesign:HintAssist.Hint="Age"
+                         materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                         materialDesign:TextFieldAssist.LeadingIcon="Counter"/>
+
+                <TextBox x:Name="BodyFatTextBox" MaxLength="5"
+                             Text="{Binding BodyFat, Converter={StaticResource ToDoubleConverter}, ConverterParameter=BodyFat,
+                                    ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         materialDesign:ValidationAssist.HasError="True"
+                         materialDesign:ValidationAssist.Background="Transparent"
+                         materialDesign:ValidationAssist.FontSize="12"
+                         materialDesign:HintAssist.Hint="Body Fat Percent"
+                         materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                         materialDesign:TextFieldAssist.LeadingIcon="Percent"/>
+
+                <TextBox x:Name="TargetWeightTextBox" MaxLength="5"
+                             Text="{Binding TargetWeight, Converter={StaticResource ToDoubleConverter}, ConverterParameter=TargetWeight,
+                                    ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         materialDesign:ValidationAssist.HasError="True"
+                         materialDesign:ValidationAssist.Background="Transparent"
+                         materialDesign:ValidationAssist.FontSize="12"
+                         materialDesign:HintAssist.Hint="Target Weight"
+                         materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                         materialDesign:TextFieldAssist.LeadingIcon="Target"/>
+
+                <TextBox x:Name="CurrentWeightTextBox" MaxLength="5"
+                             Text="{Binding CurrentWeight, Converter={StaticResource ToDoubleConverter}, ConverterParameter=CurentWeight,
+                                    ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         materialDesign:ValidationAssist.HasError="True"
+                         materialDesign:ValidationAssist.Background="Transparent"
+                         materialDesign:ValidationAssist.FontSize="12"
+                         materialDesign:HintAssist.Hint="Current Weight"
+                         materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                         materialDesign:TextFieldAssist.LeadingIcon="Weight"/>
+
+                <TextBox x:Name="HeightTextBox" MaxLength="4"
+                             Text="{Binding Height, Converter={StaticResource ToDoubleConverter}, ConverterParameter=Height,
+                                    ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         materialDesign:ValidationAssist.HasError="True"
+                         materialDesign:ValidationAssist.Background="Transparent"
+                         materialDesign:ValidationAssist.FontSize="12"
+                         materialDesign:HintAssist.Hint="Height"
+                         materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                         materialDesign:TextFieldAssist.LeadingIcon="HumanMaleHeight"/>
+
+                <ComboBox Style="{StaticResource Gender}"
+                          ItemsSource="{Binding SelectedGender, Converter={StaticResource EnumToCollectionConverter}, Mode=OneTime}"
+                          SelectedValuePath="Value"
+                          DisplayMemberPath="Description"
+                          SelectedValue="{Binding SelectedGender, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                          materialDesign:ValidationAssist.HasError="True"
+                          materialDesign:ValidationAssist.Background="Transparent"
+                          materialDesign:ValidationAssist.FontSize="12"
+                          materialDesign:HintAssist.Hint="👨👩Gender">
+                </ComboBox>
+            </StackPanel>
+        </materialDesign:Card>
+
+
+
+        <materialDesign:Snackbar Background="Transparent"
+                                 x:Name="SubmitForm"
+                                 IsActive="{Binding IsValidForm, UpdateSourceTrigger=PropertyChanged}"
+                                 Height="90"
+                                 Margin="256,0">
+            <materialDesign:SnackbarMessage  >
+                <StackPanel Margin="50,-35,0,0">
+                    <Button Style="{DynamicResource RoundedButtonStyle}"
+                            Command="{Binding AddCustomerCommand}"
+                            Width="200"
+                            Height="60"
+                            Foreground="White"
+                            FontSize="20" >
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#e040fb" Offset="1.0" />
+                                <GradientStop Color="#f57c00" Offset="0.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Submit"/>
+                                <materialDesign:PackIcon Kind="CheckboxMarkedCircleOutline" Width="20" Height="20"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </materialDesign:SnackbarMessage>
+        </materialDesign:Snackbar>
+    </Grid>
+</UserControl>
