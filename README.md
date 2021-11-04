@@ -2,6 +2,7 @@
 ```
 🔴Still In Build
 ```
+MVVM Project
 This Applicaition will manage the customers for a fitness coach (Training Programs and Menus)
 
 # Pages
